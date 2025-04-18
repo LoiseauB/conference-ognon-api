@@ -1,5 +1,6 @@
 import { AwilixContainer } from "awilix";
 import express, { Application } from "express";
+import mongoose from "mongoose";
 import container, { Dependencies } from "../../app/config/dependency-injection";
 import { errorHandlerMiddleware } from "../../app/middlewares/error-handler.middleware";
 import { jsonResponseMiddleware } from "../../app/middlewares/json-response.middleware";
@@ -16,11 +17,20 @@ export class TestApp {
   }
 
   async setup() {
+    await mongoose.connect(
+      "mongodb://admin:qwerty@localhost:27017/conferences?authSource=admin"
+    );
+    await mongoose.connection.db?.collection("users").deleteMany({});
+    
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(jsonResponseMiddleware);
     this.app.use(conferenceRoutes);
     this.app.use(errorHandlerMiddleware);
+  }
+
+  async teardown() {
+    await mongoose.connection.close();
   }
 
   async loadFixtures(fixtures: IFixture[]) {
