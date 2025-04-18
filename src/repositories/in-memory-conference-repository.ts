@@ -9,10 +9,19 @@ export class InMemoryConferenceRepository implements IConferenceRepository {
   }
 
   async findById(id: string): Promise<Conference | null> {
-    return this.database.find((conference) => conference.props.id === id) ?? null;
+    return (
+      this.database.find((conference) => conference.props.id === id) ?? null
+    );
   }
 
   async create(conference: Conference): Promise<void> {
     this.database.push(conference);
+  }
+
+  async deleteOne(id: string): Promise<void> {
+    const index = this.database.findIndex(
+      (conference) => conference.props.id === id
+    );
+    this.database.splice(index, 1);
   }
 }

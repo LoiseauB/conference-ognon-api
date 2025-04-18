@@ -1,8 +1,8 @@
-import { Conference } from "../entities/conference.entity";
-import { User } from "../entities/user.entity";
-import { IConferenceRepository } from "../interfaces/conference-repository.interface";
-import { IDateGenerator } from "../interfaces/date-generator.interface";
-import { IIDGenerator } from "../interfaces/id-generator.interface";
+import { Conference } from "../../entities/conference.entity";
+import { User } from "../../entities/user.entity";
+import { IConferenceRepository } from "../../interfaces/conference-repository.interface";
+import { IDateGenerator } from "../../interfaces/date-generator.interface";
+import { IIDGenerator } from "../../interfaces/id-generator.interface";
 
 export type OrganizeConferencePayload = {
   title: string;

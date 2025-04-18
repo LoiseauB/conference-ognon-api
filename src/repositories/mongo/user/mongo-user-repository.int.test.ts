@@ -1,6 +1,6 @@
 import { Model } from "mongoose";
-import { e2eUsers } from "../../tests/seeds/seeds-user";
-import { TestApp } from "../../tests/utils/test-app";
+import { e2eUsers } from "../../../tests/seeds/seeds-user";
+import { TestApp } from "../../../tests/utils/test-app";
 import { MongoUserRepository } from "./mongo-user-repository";
 import { MongoUserModel } from "./mongo-user.model";
 

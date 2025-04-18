@@ -1,7 +1,7 @@
-import { User } from "../entities/user.entity";
-import { InMemoryConferenceRepository } from "../repositories/in-memory-conference-repository";
-import { FixedDateGenerator } from "../utils/fixed-date-generator";
-import { FixedGeneratorID } from "../utils/fixed-id-generator";
+import { User } from "../../entities/user.entity";
+import { InMemoryConferenceRepository } from "../../repositories/in-memory-conference-repository";
+import { FixedDateGenerator } from "../../utils/fixed-date-generator";
+import { FixedGeneratorID } from "../../utils/fixed-id-generator";
 import { OrganizeConference } from "./organize-coference";
 
 describe("Organize conference", () => {

@@ -8,10 +8,13 @@ export type ConferenceProps = {
   endDate: Date;
   seats: number;
   organizerId: string;
+  participants?: User[];
 };
 
 export class Conference {
-  constructor(public props: ConferenceProps) {}
+  constructor(public props: ConferenceProps) {
+    this.props.participants = [];
+  }
 
   isTooClose(now: Date): boolean {
     return differenceInDays(this.props.startDate, now) < 3;

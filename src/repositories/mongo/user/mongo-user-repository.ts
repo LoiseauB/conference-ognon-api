@@ -1,6 +1,6 @@
 import { Model } from "mongoose";
-import { User } from "../../entities/user.entity";
-import { IUserRepository } from "../../interfaces/user-repository.interface";
+import { User } from "../../../entities/user.entity";
+import { IUserRepository } from "../../../interfaces/user-repository.interface";
 import { MongoUserModel } from "./mongo-user.model";
 
 export class MongoUserRepository implements IUserRepository {
@@ -8,7 +8,7 @@ export class MongoUserRepository implements IUserRepository {
 
   async create(user: User): Promise<void> {
     const document = new this.model({
-      _id: user.props.id,
+      id: user.props.id,
       email: user.props.email,
       password: user.props.password,
     });
